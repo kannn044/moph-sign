@@ -13,7 +13,7 @@
     </style>
     <body>
         <div class="container">
-            <center> <h1>ระบบออกรายงาน การบันทึกเวลาเข้า-ออกงาน</h1></center>
+            <center><h1>ระบบออกรายงาน การบันทึกเวลาเข้า-ออกงาน</h1></center>
             <br>
             <form action="report_show.php" method="post" name="frmMain" id="frmMain">
             <table>
