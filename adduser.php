@@ -18,7 +18,7 @@ if (!$_SESSION['admin']) {
 			<br>
 			<table border="1" cellspacing="0" cellpadding="5">
 				<tr>
-					<th colspan="6">เพิ่มข้อมูล</th>
+					<th colspan="7">เพิ่มข้อมูล</th>
 				</tr>
 				<tr>
 					<th>CID</th>
@@ -27,6 +27,7 @@ if (!$_SESSION['admin']) {
 					<th>นามสกุล</th>
 					<th>ตำแหน่ง</th>
 					<th>กลุ่ม</th>
+					<th>ประเภท</th>
 				</tr>
 				<tr>
 					<td><input type="text" name="cid" placeholder="เลขบัตรประจำตัวประชาชน" required></td>
@@ -61,9 +62,20 @@ if (!$_SESSION['admin']) {
 							?>
 						</select>
 					</td>
+					<td>
+						<select name="type">
+							<?php
+							$sqld="select * from type";
+							$result=$conn->query($sqld);
+							while ($rs=$result->fetch_array()) {
+								echo "<option value=".$rs[0].">".$rs[1]."</option>";
+							}
+							?>
+						</select>
+					</td>
 				</tr>
 				<tr>
-					<td colspan="6" align="center"><input type="submit" name="en" value="เพิ่มข้อมูล">
+					<td colspan="7" align="center"><input type="submit" name="en" value="เพิ่มข้อมูล">
 					<input type="reset" name="" value="ยกเลิก"></td>
 				</tr>
 			</table>
@@ -73,7 +85,7 @@ if (!$_SESSION['admin']) {
 </html>
 <?php 
 	if (isset($_POST['en'])) {
-		$sqlinsert="insert into user values('".$_POST['cid']."','".$_POST['pre']."','".$_POST['name']."','".$_POST['lname']."','".$_POST['pos']."','".$_POST['dep']."')";
+		$sqlinsert="insert into user values('".$_POST['cid']."','".$_POST['pre']."','".$_POST['name']."','".$_POST['lname']."','".$_POST['pos']."','".$_POST['dep']."','".$_POST['type']."')";
 		$res=$conn->query($sqlinsert);
 		if($res) header('Location:admin.php');
 	}

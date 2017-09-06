@@ -15,7 +15,7 @@ if (!$_SESSION['admin']) {
 		<center>
 		<table border="1" width="80%" cellspacing="0" cellpadding="5">
 			<tr>
-				<th align="center" colspan="8">รายชื่อ</th>
+				<th align="center" colspan="9">รายชื่อ</th>
 			</tr>
 			<tr>
 				<th>CID</th>
@@ -24,23 +24,26 @@ if (!$_SESSION['admin']) {
 				<th>นามสกุล</th>
 				<th>ตำแหน่ง</th>
 				<th>กลุ่ม</th>
+				<th>ประเภท</th>
 				<th>แก้ไข</th>
 				<th>ลบ</th>
 			</tr>
 			<?php
-				$sql="SELECT u.cid,u.prename,u.name,u.lname,p.name,d.name FROM user u JOIN department d on u.depid=d.id JOIN position p ON p.id=u.pid";
+				$sql="SELECT u.cid,u.prename,u.name,u.lname,p.name as p_name,d.name as d_name,t.type_name FROM user u JOIN department d on u.depid=d.id JOIN position p ON p.id=u.pid join type t on t.type_id=u.type";
+
 				$result=$conn->query($sql);
 				while ($rs=$result->fetch_array()) {
 			?>	
 			<tr>
-				<td><?php echo $rs[0]; ?></td>
-				<td><?php echo $rs[1]; ?></td>
-				<td><?php echo $rs[2]; ?></td>
-				<td><?php echo $rs[3]; ?></td>
-				<td><?php echo $rs[4]; ?></td>
-				<td><?php echo $rs[5]; ?></td>
-				<td width="5%;" align="center"><a href="edit.php?id=<?php echo $rs[0]; ?>"><img src="edit.png" width="60%;"></a></td>
-				<td width="5%;" align="center"><a href="delete.php?id=<?php echo $rs[0]; ?>" onclick="return confirm('แน่ใจหรือไม่')"><img src="remove.png" width="60%;"></a></td>
+				<td><?php echo $rs['cid']; ?></td>
+				<td><?php echo $rs['prename']; ?></td>
+				<td><?php echo $rs['name']; ?></td>
+				<td><?php echo $rs['lname']; ?></td>
+				<td><?php echo $rs['p_name']; ?></td>
+				<td><?php echo $rs['d_name']; ?></td>
+				<td><?php echo $rs['type_name']; ?></td>
+				<td width="5%;" align="center"><a href="edit.php?id=<?php echo $rs['cid']; ?>"><img src="edit.png" width="60%;"></a></td>
+				<td width="5%;" align="center"><a href="delete.php?id=<?php echo $rs['cid']; ?>" onclick="return confirm('แน่ใจหรือไม่')"><img src="remove.png" width="60%;"></a></td>
 			</tr>
 			<?php
 			}
