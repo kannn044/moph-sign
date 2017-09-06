@@ -33,9 +33,9 @@ if (!$_SESSION['admin']) {
 					<td><input type="text" name="cid" placeholder="เลขบัตรประจำตัวประชาชน" required></td>
 					<td>
 						<select name="pre" style="width: 100%;">
-							<option value='1'>นาย</option>
-							<option value='2'>นาง</option>
-							<option value='3'>นางสาว</option>
+							<option value='นาย'>นาย</option>
+							<option value='นาง'>นาง</option>
+							<option value='นางสาว'>นางสาว</option>
 						</select>
 					</td>
 					<td><input type="text" name="name" required></td>

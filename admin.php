@@ -29,7 +29,7 @@ if (!$_SESSION['admin']) {
 				<th>ลบ</th>
 			</tr>
 			<?php
-				$sql="SELECT u.cid,u.prename,u.name,u.lname,p.name as p_name,d.name as d_name,t.type_name FROM user u JOIN department d on u.depid=d.id JOIN position p ON p.id=u.pid join type t on t.type_id=u.type";
+				$sql="SELECT u.cid,u.prename,u.name,u.lname,p.name as p_name,d.name as d_name,t.type_name FROM user u JOIN department d on u.depid=d.id JOIN position p ON p.id=u.pid join type t on t.type_id=u.type where u.status=1" ;
 
 				$result=$conn->query($sql);
 				while ($rs=$result->fetch_array()) {

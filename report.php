@@ -21,29 +21,29 @@
                     <td>กรุณาเลือกวันที่</td>
                     <td><input id="date1" name="date1" type="text" /></td>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td>ถึงวันที่</td>
                     <td><input id="date2" name="date2" type="text" /></td>
                 </tr>
-                <tr>
+ -->                <tr>
                     <td></td>
                     <td>&nbsp</td>
                 </tr>
                 <tr>
                     <td>เลือกทั้งหมด</td>
-                    <td><input type="checkbox" name="chkbox[]" id='CheckAll' onclick="ClickCheckAll(this)" value="Y"></td>
+                    <td><input type="checkbox" name="" id='CheckAll' onclick="ClickCheckAll(this)" value="Y"></td>
                 </tr>
                 <tr>
                     <td>ข้าราชการ/พนักงานราชการ</td>
-                    <td><input type="checkbox" name="chkbox[]" id='Chk1' ></td>
+                    <td><input type="checkbox" name="chkbox1" id='Chk1' ></td>
                 </tr>
                  <tr>
                      <td>เจ้าหน้าที่เหมาจ่าย  </td>
-                    <td><input type="checkbox" name="chkbox[]" id='Chk2' ></td>
+                    <td><input type="checkbox" name="chkbox2" id='Chk2' ></td>
                 </tr>
                 <tr>
                      <td>เจ้าหน้าที่บริษัท</td>
-                    <td><input type="checkbox" name="chkbox[]" id='Chk3' ></td>
+                    <td><input type="checkbox" name="chkbox3" id='Chk3' ></td>
                 </tr>
                 <tr>
                     <td></td>

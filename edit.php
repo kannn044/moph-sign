@@ -1,4 +1,5 @@
 <?php
+session_start();
 	include 'connect.php';
 	if (!$_SESSION['admin']) {
 	header('Location: index.php');
@@ -18,7 +19,7 @@
 			<br>
 			<table width="70%" border="1" cellspacing="0" cellpadding="5">
 				<tr>
-					<th colspan="6">แก้ไขข้อมูล</th>
+					<th colspan="7">แก้ไขข้อมูล</th>
 				</tr>
 				<tr>
 					<th>CID</th>
@@ -27,9 +28,10 @@
 					<th>นามสกุล</th>
 					<th>ตำแหน่ง</th>
 					<th>กลุ่ม</th>
+					<th>ประเภท</th>
 				</tr>
 				<?php
-						$sql="SELECT u.cid,u.prename,u.name,u.lname FROM user u JOIN department d on u.depid=d.id JOIN position p ON p.id=u.pid where cid=".$_GET['id']."";
+						$sql="SELECT u.cid,u.prename,u.name,u.lname,t.type_name,d.name as d_name,p.name as p_name FROM user u JOIN department d on u.depid=d.id JOIN position p ON p.id=u.pid join type t on t.type_id=u.type where cid=".$_GET['id']."";
 						$result=$conn->query($sql);
 						$rs=$result->fetch_assoc();
 				?>
@@ -43,8 +45,13 @@
 							<?php
 							$s="select * from position";
 							$result=$conn->query($s);
-							while ($rs=$result->fetch_array()) {
-								echo "<option value=".$rs[0].">".$rs[1]."</option>";
+							while ($rs2=$result->fetch_array()) {
+								echo '<option value="'.$rs2['id'].'" ';
+								if($rs['p_name']==$rs2['name'])
+								{
+									echo 'selected';
+								}
+								echo " >".$rs2['name']."</option>";
 							}
 							?>
 						</select>
@@ -54,17 +61,40 @@
 							<?php
 							$s="select * from department";
 							$result=$conn->query($s);
-							while ($rs=$result->fetch_array()) {
-								echo "<option value=".$rs[0].">".$rs[1]."</option>";
+							while ($rs2=$result->fetch_array()) {
+								echo '<option value="'.$rs2['id'].'" ';
+								if($rs['d_name']==$rs2['name'])
+								{
+									echo 'selected';
+								}
+								echo " >".$rs2['name']."</option>";
+							}
+							?>
+						</select>
+					</td>
+					<td>
+						<select name="t">
+							<?php
+							$s="select * from type";
+							$result=$conn->query($s);
+							while ($rs2=$result->fetch_array()) {
+
+								echo '<option value="'.$rs2['type_id'].'" ';
+								if($rs['type_name']==$rs2['type_name'])
+								{
+									echo 'selected';
+								}
+								echo " >".$rs2['type_name']."</option>";
 							}
 							?>
 						</select>
 					</td>
 				</tr>
 				<tr>
-					<td colspan="6" align="center">
+					<td colspan="7" align="center">
 						<input type="submit" onclick="return confirm('แน่ใจหรือไม่')" name="en" value="แก้ไขข้อมูล">
-						<input type="reset" name="" value="ยกเลิก">
+						<input type="button" value="ยกเลิก" 
+						onclick="window.location.href='admin.php'">
 					</td>
 				</tr>
 			</table>
@@ -74,7 +104,7 @@
 </html>
 <?php 
 	if (isset($_POST['en'])) {
-		$sqlupdate="update user set name='".$_POST['n']."',lname='".$_POST['l']."',pid='".$_POST['p']."',depid='".$_POST['d']."' where cid='".$_GET['id']."'";
+		$sqlupdate="update user set name='".$_POST['n']."',lname='".$_POST['l']."',pid='".$_POST['p']."',depid='".$_POST['d']."',type='".$_POST['t']."' where cid='".$_GET['id']."'";
 		echo $sqlupdate;
 		$res=$conn->query($sqlupdate);
 		if($res) header('Location:admin.php');
