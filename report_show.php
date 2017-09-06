@@ -44,6 +44,7 @@ $date1=substr($date1,6,4).substr($date1,2,4).substr($date1,0,2);
 					note AS note
 				FROM
 					log
+				where `time` LIKE '%".$date1."%'
 				GROUP BY
 					cid
 			) log
@@ -89,6 +90,7 @@ $date1=substr($date1,6,4).substr($date1,2,4).substr($date1,0,2);
 					note AS note
 				FROM
 					log
+				where `time` LIKE '%".$date1."%'
 				GROUP BY
 					cid
 			) log
@@ -134,6 +136,7 @@ $date1=substr($date1,6,4).substr($date1,2,4).substr($date1,0,2);
 					note AS note
 				FROM
 					log
+				where `time` LIKE '%".$date1."%'
 				GROUP BY
 					cid
 			) log
