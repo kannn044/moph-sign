@@ -8,19 +8,22 @@
         <link href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" type="text/css" rel="stylesheet" />
        
     </head>
+    <style type="text/css">
+        body{background: linear-gradient(to right, #388e3c , #8bc34a);}
+    </style>
     <body>
         <div class="container">
-            <h1>ระบบออกรายงาน การบันทึกเวลาเข้า-ออกงาน</h1>
+            <center> <h1>ระบบออกรายงาน การบันทึกเวลาเข้า-ออกงาน</h1></center>
             <br>
-            <form action="" method="get" name="frmMain" id="frmMain">
+            <form action="report_show.php" method="post" name="frmMain" id="frmMain">
             <table>
                 <tr>
                     <td>กรุณาเลือกวันที่</td>
-                    <td><input id="date1" name="abc" type="text" /></td>
+                    <td><input id="date1" name="date1" type="text" /></td>
                 </tr>
                 <tr>
                     <td>ถึงวันที่</td>
-                    <td><input id="date2" name="abc" type="text" /></td>
+                    <td><input id="date2" name="date2" type="text" /></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -31,11 +34,11 @@
                     <td><input type="checkbox" name="chkbox[]" id='CheckAll' onclick="ClickCheckAll(this)" value="Y"></td>
                 </tr>
                 <tr>
-                    <td>ข้าราชการ</td>
+                    <td>ข้าราชการ/พนักงานราชการ</td>
                     <td><input type="checkbox" name="chkbox[]" id='Chk1' ></td>
                 </tr>
                  <tr>
-                     <td>พนักงานราชการ</td>
+                     <td>เจ้าหน้าที่เหมาจ่าย  </td>
                     <td><input type="checkbox" name="chkbox[]" id='Chk2' ></td>
                 </tr>
                 <tr>
@@ -46,7 +49,7 @@
                     <td></td>
                     <td>&nbsp</td>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td>เลือกทั้งหมด</td>
                     <td><input type="checkbox" name="chkbox2[]" id='CheckAll' onclick="ClickCheckAll2(this)"></td>
                 </tr>
@@ -65,7 +68,7 @@
                 <tr>
                     <td>ลากิจ</td>
                     <td><input type="checkbox" name="chkbox2[]" id='c4' ></td>
-                </tr>
+                </tr> -->
             </table>
             <input type="submit" name="submit" value="ออกรายงาน">
                 
