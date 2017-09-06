@@ -85,7 +85,8 @@ if (!$_SESSION['admin']) {
 </html>
 <?php 
 	if (isset($_POST['en'])) {
-		$sqlinsert="insert into user values('".$_POST['cid']."','".$_POST['pre']."','".$_POST['name']."','".$_POST['lname']."','".$_POST['pos']."','".$_POST['dep']."','".$_POST['type']."')";
+		$sqlinsert="insert into user values('".$_POST['cid']."','".$_POST['pre']."','".$_POST['name']."','".$_POST['lname']."','".$_POST['pos']."','".$_POST['dep']."','".$_POST['type']."',1)";
+		echo $sqlinsert;
 		$res=$conn->query($sqlinsert);
 		if($res) header('Location:admin.php');
 	}

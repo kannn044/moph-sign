@@ -13,15 +13,13 @@ if (!$_SESSION['admin']) {
 		<div style="padding: 20px; margin-right: 10%;" align="right">
 		<a href="adduser.php"><img src="add.png" width="2%;">&nbsp เพิ่มข้อมูล</a></div>
 		<center>
-		<table border="1" width="80%" cellspacing="0" cellpadding="5">
+		<table border="1" width="90%" cellspacing="0" cellpadding="5">
 			<tr>
-				<th align="center" colspan="9">รายชื่อ</th>
+				<th align="center" colspan="8">รายชื่อ</th>
 			</tr>
 			<tr>
 				<th>CID</th>
-				<th>คำนำหน้าชื่อ</th>
-				<th>ชื่อ</th>
-				<th>นามสกุล</th>
+				<th colspan="2">ชื่อ-นามสกุล</th>
 				<th>ตำแหน่ง</th>
 				<th>กลุ่ม</th>
 				<th>ประเภท</th>
@@ -36,9 +34,8 @@ if (!$_SESSION['admin']) {
 			?>	
 			<tr>
 				<td><?php echo $rs['cid']; ?></td>
-				<td><?php echo $rs['prename']; ?></td>
-				<td><?php echo $rs['name']; ?></td>
-				<td><?php echo $rs['lname']; ?></td>
+				<td style="border-right: 0px;"><?php echo $rs['prename'].$rs['name']; ?></td>
+				<td style="border-left: 0px;"> <?php echo $rs['lname']; ?></td>
 				<td><?php echo $rs['p_name']; ?></td>
 				<td><?php echo $rs['d_name']; ?></td>
 				<td><?php echo $rs['type_name']; ?></td>
