@@ -1,0 +1,16 @@
+body{
+	background: red; /* For browsers that do not support gradients */
+	background: linear-gradient(to right, #388e3c , #8bc34a); /* Standard syntax */
+	/*display: flex;*/
+    align-items: center;
+    justify-content: center;
+}
+.box{
+	width: 70%;
+	display: inline-block;
+	float: left;
+	margin-left: 15%;
+	background-color: rgba(255,255,255,1);
+	height: 400px;
+	border-radius: 3px 3px 3px 3px;
+}
