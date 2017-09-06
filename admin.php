@@ -1,4 +1,9 @@
-<?php include 'connect.php' ?>
+<?php include 'connect.php';
+session_start();
+if (!$_SESSION['admin']) {
+	header('Location: index.php');
+}
+ ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -34,13 +39,15 @@
 				<td><?php echo $rs[3]; ?></td>
 				<td><?php echo $rs[4]; ?></td>
 				<td><?php echo $rs[5]; ?></td>
-				<td width="5%;" align="center"><a href="edit.php"><img src="edit.png" width="60%;"></a></td>
-				<td width="5%;" align="center"><a href="remove.php"><img src="remove.png" width="60%;"></a></td>
+				<td width="5%;" align="center"><a href="edit.php?id=<?php echo $rs[0]; ?>"><img src="edit.png" width="60%;"></a></td>
+				<td width="5%;" align="center"><a href="delete.php?id=<?php echo $rs[0]; ?>" onclick="return confirm('แน่ใจหรือไม่')"><img src="remove.png" width="60%;"></a></td>
 			</tr>
 			<?php
 			}
 			?>
 		</table>
 		</center>
+		<div style="padding: 20px; margin-right: 10%;" align="right">
+		<a href="logout.php"><img src="logout.png" width="2%;">&nbsp ออกจากระบบ</a></div>
 	</body>
 </html>
