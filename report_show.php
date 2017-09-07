@@ -52,7 +52,9 @@ $date1=substr($date1,6,4).substr($date1,2,4).substr($date1,0,2);
 			log.`time` LIKE '%".$date1."%'
 			) logall
 		RIGHT JOIN USER u ON logall.cid = u.cid
-		where u.type=1 or u.type=2";
+		where u.type=1 or u.type=2
+		and (u.end_date >= '2017-08-23'
+		or u.end_date IS NULL)";
 		$sql2="SELECT
 			u.cid,
 			u.prename,
@@ -98,7 +100,9 @@ $date1=substr($date1,6,4).substr($date1,2,4).substr($date1,0,2);
 			log.`time` LIKE '%".$date1."%'
 			) logall
 		RIGHT JOIN USER u ON logall.cid = u.cid
-		where u.type=3";
+		where u.type=3
+		and (u.end_date >= '2017-08-23'
+		or u.end_date IS NULL)";
 		$sql3="SELECT
 			u.cid,
 			u.prename,
@@ -144,7 +148,9 @@ $date1=substr($date1,6,4).substr($date1,2,4).substr($date1,0,2);
 			log.`time` LIKE '%".$date1."%'
 			) logall
 		RIGHT JOIN USER u ON logall.cid = u.cid
-		where u.type=4";
+		where u.type=4
+		and (u.end_date >= '2017-08-23'
+		or u.end_date IS NULL)";
     $result=$conn->query($sql);
     $result2=$conn->query($sql2);
     $result3=$conn->query($sql3);
@@ -155,8 +161,13 @@ $date1=substr($date1,6,4).substr($date1,2,4).substr($date1,0,2);
 <html>
 <head>
 	<title></title>
+	<link href="css/reset.css" rel="stylesheet">
 </head>
 <body>
+<div  class="hideprint hmenu">
+    <?php include "menu.php"; ?>
+    </div>
+    <div class="container">
 <?php if($check1=="on"){ ?>
 <center class="b">ศูนย์เทคโนโลยีสารสนเทศและการสื่อสาร
 <br>บัญชีลงเวลาการปฏิบัติราชการของข้าราชการและพนักงานราชการ
@@ -300,6 +311,7 @@ if($check3=="on"){ ?>
 	</tbody>
 </table>
 <?php  } ?>
+</div>
 </body>
 </html>
 <style type="text/css">
@@ -314,6 +326,19 @@ if($check3=="on"){ ?>
 	body{
 		font-family: THSarabunNew;
 		font-size: 16pt;
+	}
+	.container{
+		width:85%;
+		float:left;
+		background:white;
+		float:left;"
+	}
+	.hmenu{
+		width:15%;
+		min-height: 100vh;
+		height:auto;
+		float:left;
+		background:green;
 	}
 	.b{
 		font-family: THSarabunNewBold;
@@ -333,9 +358,15 @@ if($check3=="on"){ ?>
 	    .hide{display:block;}
 	}
 	@media print
-	{
+	{	
+		.hideprint{display: none;}
+		.container{width:100%;}
 		.hide{display:block;}
 	    .page-break { display:block;height:1px; page-break-before:always; }
 	    .page-break-no{ display:block;height:1px; page-break-after:avoid; } 
 	}
+	td,th{
+		border: 1px solid black;
+	}
+	
 </style>

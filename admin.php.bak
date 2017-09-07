@@ -15,14 +15,14 @@ if (!$_SESSION['admin']) {
 	</head>
 	<body style="position:fixed;">
 	<div style="width:15%;min-height: 100vh;height:auto;float:left;background:green;float:left">
-	<?php include "menu.php"; ?>
+	<?php include "menu.php" ?>
 	</div>
 	<div style="width:85%;float:left;background:white;float:left;">
 	
 		<div style="padding: 20px; margin-right: 10%;" align="right">
 		<a href="adduser.php"><img src="add.png" width="2%;">&nbsp เพิ่มข้อมูล</a></div>
 
-		<div style="width: 90%;margin-left:5%;">
+		<div style="width: 80%;margin-left:10%;">
 		<table id="example" class="table table-striped table-bordered" border="1" width="100%" cellspacing="0">
 		<thead>
 			 <tr>
@@ -53,7 +53,7 @@ if (!$_SESSION['admin']) {
 				<td><?php echo $rs['p_name']; ?></td>
 				<td><?php echo $rs['d_name']; ?></td>
 				<td><?php echo $rs['type_name']; ?></td>
-				<td width="5%;" align="center"><a href="edit.php?id=<?php echo $rs['cid']; ?>"><img src="edit.png" width="45%;"></a></td>
+				<td width="5%;" align="center"><a href="edit.php?id=<?php echo $rs['cid']; ?>"><img src="edit.png" width="60%;"></a></td>
 				<td width="5%;" align="center"><a href="delete.php?id=<?php echo $rs['cid']; ?>" onclick="return confirm('คุณต้องการที่จะลบใช่หรือไม่')"><img src="remove.png" width="60%;"></a></td>
 			</tr>
 			

@@ -4,22 +4,27 @@
         <script src="js/jquery-1.4.4.min.js" type="text/javascript"></script>
         <script src="js/jquery.ui.core.js" type="text/javascript"></script>
         <script src="js/jquery.ui.datepicker.js" type="text/javascript"></script>
+        <link href="css/reset.css" rel="stylesheet">
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
         <title>ระบบบันทึกเวลาเข้า-ออกงาน</title>
         <link href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" type="text/css" rel="stylesheet" />
        
     </head>
-    <style type="text/css">
-        body{background: linear-gradient(to right, #388e3c , #8bc34a);}
-    </style>
-    <body>
-        <div class="container">
-            <center><h1>ระบบออกรายงาน การบันทึกเวลาเข้า-ออกงาน</h1></center>
+  
+   <body style="position:fixed;">
+    <div style="width:15%;min-height: 100vh;height:auto;float:left;background:green;float:left">
+    <?php include "menu.php"; ?>
+    </div>
+    <div style="width:85%;float:left;background:white;float:left;">
+            <center><h2><br>ระบบออกรายงาน การบันทึกเวลาเข้า-ออกงาน</h2></center>
             <br>
-            <form action="report_show.php" method="post" name="frmMain" id="frmMain">
+            <div class="contain">
+            <form class="form-group" action="report_show.php" method="post" name="frmMain" id="frmMain">
             <table>
                 <tr>
-                    <td>กรุณาเลือกวันที่</td>
-                    <td><input id="date1" name="date1" type="text" /></td>
+                    <td width="50%">กรุณาเลือกวันที่</td>
+                    <td><input class="form-control" id="date1" name="date1" type="text" /></td>
                 </tr>
                 <!-- <tr>
                     <td>ถึงวันที่</td>
@@ -31,19 +36,19 @@
                 </tr>
                 <tr>
                     <td>เลือกทั้งหมด</td>
-                    <td><input type="checkbox" name="" id='CheckAll' onclick="ClickCheckAll(this)" value="Y"></td>
+                    <td><input type="checkbox" class="form-control" name="" id='CheckAll' onclick="ClickCheckAll(this)" value="Y"></td>
                 </tr>
                 <tr>
                     <td>ข้าราชการ/พนักงานราชการ</td>
-                    <td><input type="checkbox" name="chkbox1" id='Chk1' ></td>
+                    <td><input type="checkbox" class="form-control" name="chkbox1" id='Chk1' ></td>
                 </tr>
                  <tr>
                      <td>เจ้าหน้าที่เหมาจ่าย  </td>
-                    <td><input type="checkbox" name="chkbox2" id='Chk2' ></td>
+                    <td><input type="checkbox" class="form-control" name="chkbox2" id='Chk2' ></td>
                 </tr>
                 <tr>
                      <td>เจ้าหน้าที่บริษัท</td>
-                    <td><input type="checkbox" name="chkbox3" id='Chk3' ></td>
+                    <td><input type="checkbox" class="form-control" name="chkbox3" id='Chk3' ></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -74,6 +79,7 @@
                 
                 
             </form>
+            </div>
         </div>
     </body>
 </html>
@@ -117,3 +123,15 @@
         }
     }
 </script>
+  <style type="text/css">
+        body{
+            background: linear-gradient(to right, #388e3c , #8bc34a);
+
+        }
+        .contain{
+            margin-top: 20px;
+            width: 90%;
+            margin-left: 5%;
+            font-size: 14pt;
+        }
+    </style>

@@ -92,7 +92,7 @@ session_start();
 				</tr>
 				<tr>
 					<td colspan="7" align="center">
-						<input type="submit" onclick="return confirm('คุณต้องการที่จะแก้ไขข้อมูลใช่หรือไม่')" name="en" value="แก้ไขข้อมูล">
+						<input type="submit" onclick="return confirm('แน่ใจหรือไม่')" name="en" value="แก้ไขข้อมูล">
 						<input type="button" value="ยกเลิก" 
 						onclick="window.location.href='admin.php'">
 					</td>

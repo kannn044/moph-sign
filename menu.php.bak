@@ -1,0 +1,7 @@
+<div style="margin-top:20px;margin-left:2.5%;width:95%;">
+
+
+<a href="report.php" style="text-decoration: none;color:white"><img src="icon/report.png" width="20%;">&nbsp รายงาน</a>
+<a href="logout.php" style="text-decoration: none;color:white"><img src="icon/logout.png" width="20%;">&nbsp ออกจากระบบ</a>
+</div>
+
