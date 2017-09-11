@@ -6,10 +6,11 @@
 </head>
 <body>
 <form action="#" method="post">
-	<img src="back.png" width="2%"><a href="index.php">กลับสู่หน้าหลัก</a>
-	<table align="center" style="margin-top: 18%; font-size: 15pt; line-height: 1.5em;">
+	<a href="index.php"><img src="back.png" width="2%">กลับสู่หน้าหลัก</a>
+	<center><img src="ictmoph.jpg" style="width:15%;margin-top: 10%;"></center>
+	<table align="center" style="font-size: 15pt; line-height: 1.5em;">
 		<tr>
-			<th colspan="2" align="center">เข้าสู่ระบบ</th>
+			<th colspan="2" align="center">&nbsp;</th>
 		</tr>
 		<tr>
 			<td>Username</td>
@@ -34,3 +35,9 @@
 		}else echo "<script>alert('Username หรือ Password ไม่ถูกต้อง')</script>";
 	}
  ?>
+ <style type="text/css">
+	body{
+	    background: linear-gradient(to right, #388e3c , #8bc34a);
+
+	}
+ </style>

@@ -162,12 +162,15 @@ $date1=substr($date1,6,4).substr($date1,2,4).substr($date1,0,2);
 <head>
 	<title></title>
 	<link href="css/reset.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <div  class="hideprint hmenu">
     <?php include "menu.php"; ?>
     </div>
     <div class="container">
+    <button onclick="window.print();" class="btn btn-success hideprint" style="position: absolute;margin-top: 10px;font-size: 20px">พิมพ์</button>
 <?php if($check1=="on"){ ?>
 <center class="b">ศูนย์เทคโนโลยีสารสนเทศและการสื่อสาร
 <br>บัญชีลงเวลาการปฏิบัติราชการของข้าราชการและพนักงานราชการ
@@ -177,10 +180,10 @@ $date1=substr($date1,6,4).substr($date1,2,4).substr($date1,0,2);
 	<thead>
 		<tr>
 			<th width="5%"></th>
-			<th width="30%">ชื่อ - นามสกุล</th>
-			<th width="15%">เวลามา</th>
-			<th width="15%">เวลากลับ</th>
-			<th align="center">หมายเหตุ</th>
+			<th style="text-align: center" width="30%">ชื่อ - นามสกุล</th>
+			<th style="text-align: center" width="15%">เวลามา</th>
+			<th style="text-align: center" width="15%">เวลากลับ</th>
+			<th style="text-align: center">หมายเหตุ</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -217,18 +220,19 @@ $date1=substr($date1,6,4).substr($date1,2,4).substr($date1,0,2);
 <?php }
 if($check2=="on"){ ?>
 <div class="page-break"></div>
-<center class="b"><div class="hide">ศูนย์เทคโนโลยีสารสนเทศและการสื่อสาร</div>
+<center class="b">
+<div class="hhide">ศูนย์เทคโนโลยีสารสนเทศและการสื่อสาร</div>
 บัญชีลงเวลาการปฏิบัติงานลูกจ้างกระทรวง
-<div class="hide">วันที่ <?php echo $date;?></div></center>
+<div class="hhide">วันที่ <?php echo $date;?></div></center>
 
 <table width="100%" border="1">
 	<thead>
 		<tr>
 			<th width="5%"></th>
-			<th width="30%">ชื่อ - นามสกุล</th>
-			<th width="15%">เวลามา</th>
-			<th width="15%">เวลากลับ</th>
-			<th align="center">หมายเหตุ</th>
+			<th style="text-align: center" width="30%">ชื่อ - นามสกุล</th>
+			<th style="text-align: center" width="15%">เวลามา</th>
+			<th style="text-align: center" width="15%">เวลากลับ</th>
+			<th style="text-align: center">หมายเหตุ</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -266,18 +270,18 @@ if($check2=="on"){ ?>
 if($check3=="on"){ ?>
 <div class="page-break"></div>
 <center class="b">
-<div class="hide">ศูนย์เทคโนโลยีสารสนเทศและการสื่อสาร</div>
-บัญชีลงเวลาการปฏิบัตงานเจ้าหน้าที่บริษัท
-<div class="hide">วันที่ <?php echo $date;?></div></center>
+<div class="hhide">ศูนย์เทคโนโลยีสารสนเทศและการสื่อสาร</div>
+บัญชีลงเวลาการปฏิบัติงานเจ้าหน้าที่บริษัท
+<div class="hhide">วันที่ <?php echo $date;?></div></center>
 
 <table width="100%" border="1">
 	<thead>
 		<tr>
 			<th width="5%"></th>
-			<th width="30%">ชื่อ - นามสกุล</th>
-			<th width="15%">เวลามา</th>
-			<th width="15%">เวลากลับ</th>
-			<th align="center">หมายเหตุ</th>
+			<th style="text-align: center" width="30%">ชื่อ - นามสกุล</th>
+			<th style="text-align: center" width="15%">เวลามา</th>
+			<th style="text-align: center" width="15%">เวลากลับ</th>
+			<th style="text-align: center">หมายเหตุ</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -351,17 +355,20 @@ if($check3=="on"){ ?>
 	{
 	    .page-break { display:none; }
 	    .page-break-no{ display:none; }
-	    .hide{display:none;}
+	    .hhide{display:none;}
+	    .invis{visibility: hidden;}
+
 	}
 	@media page
 	{
-	    .hide{display:block;}
+	    .hhide{display:block;}
 	}
 	@media print
 	{	
 		.hideprint{display: none;}
 		.container{width:100%;}
-		.hide{display:block;}
+		.hhide{display:block;}
+		.invis{visibility: visible;}
 	    .page-break { display:block;height:1px; page-break-before:always; }
 	    .page-break-no{ display:block;height:1px; page-break-after:avoid; } 
 	}
